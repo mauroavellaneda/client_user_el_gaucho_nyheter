@@ -15,11 +15,6 @@ const rootReducer = (state = initialState, action) => {
           role: action.payload.role,
         },
       };
-      case "SET_LOCATION":
-        return {
-          ...state,
-          location: action.payload
-        }
     default:
       return state;
   }

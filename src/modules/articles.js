@@ -1,5 +1,6 @@
 import axios from "axios";
 import { getAuthHeaders } from "./auth";
+import { getCurrentPosition } from './location';
 
 const Articles = {
   async index(category) {
@@ -16,10 +17,11 @@ const Articles = {
     }
   },
 
-  async localIndex(location) {
+  async localIndex() {
+    const location = await getCurrentPosition()
     try {
       let result = await axios.get(`/articles/?location=${location}`);
-      return result.data.articles;
+      return {articles: result.data.articles, location: location}
     } catch (error) {
       return error.response.data.error;
     }
