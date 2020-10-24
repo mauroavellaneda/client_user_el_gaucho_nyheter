@@ -17,7 +17,7 @@ describe("User can see news from current country", () => {
       cy.visit("/", stubLocation({ latitude: 59.3501, longitude: 17.9658 }));
     });
 
-    it("Visitor can see the articles in the Local News category", () => {
+    it("Visitor can see Local News from Sweden", () => {
       cy.get("[data-cy='local-news']").click();
       cy.get("[data-cy='current-location']").should(
         "contain",
@@ -50,7 +50,7 @@ describe("User can see news from current country", () => {
       );
     });
 
-    it("Visitor can see the articles in the News category", () => {
+    it("Visitor can see Local News from America ", () => {
       cy.get("[data-cy='local-news']").click();
       cy.get("[data-cy='current-location']").should(
         "contain",
