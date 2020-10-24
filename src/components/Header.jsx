@@ -24,7 +24,7 @@ const Header = () => {
           Politics
         </Menu.Item>
         <Menu.Item as={Link} to="/category/local" data-cy="local-news">
-          LOCAL NEWS
+          Local news
         </Menu.Item>
       </Menu.Item>
       {authenticated ? (
@@ -38,7 +38,7 @@ const Header = () => {
             Become Subscriber
           </Menu.Item>
         )
-      ) : ( 
+      ) : (
         <Menu.Item as={Link} to="/login" data-cy="login" position="right">
           Login
         </Menu.Item>

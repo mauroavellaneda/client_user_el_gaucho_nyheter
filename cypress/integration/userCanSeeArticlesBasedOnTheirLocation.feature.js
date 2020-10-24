@@ -19,17 +19,17 @@ describe("User can see news from current country", () => {
 
     it("Visitor can see the articles in the Local News category", () => {
       cy.get("[data-cy='local-news']").click();
-      // cy.get("[data-cy='current-location']").should(
-      //   "contain",
-      //   "Local news from: Sweden"
-      // );
+      cy.get("[data-cy='current-location']").should(
+        "contain",
+        "Local news from: Sweden"
+      );
       cy.get("[data-cy='article-7']").within(() => {
         cy.contains("Osäkert kring Piteås match");
       });
     });
   });
 
-  xcontext("when current location is America", () => {
+  context("when current location is America", () => {
     beforeEach(() => {
       cy.server();
       cy.route({
@@ -39,7 +39,8 @@ describe("User can see news from current country", () => {
       });
       cy.route({
         method: "GET",
-        url: "http://localhost:3000/api/v1/articles/?location=America",
+        url:
+          "http://localhost:3000/api/v1/articles/?location=United States of America",
         response: "fixture:local_news_USA.json",
       });
 
@@ -50,13 +51,12 @@ describe("User can see news from current country", () => {
     });
 
     it("Visitor can see the articles in the News category", () => {
-      cy.get("[data-cy='local-news']").click({ force: true });
+      cy.get("[data-cy='local-news']").click();
       cy.get("[data-cy='current-location']").should(
         "contain",
         "Local news from: United States of America"
       );
-    });
-    it("And read its content", () => {
+
       cy.get("[data-cy='article-9']").within(() => {
         cy.contains("Flush With Cash");
       });

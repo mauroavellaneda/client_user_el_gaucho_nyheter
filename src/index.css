@@ -8,3 +8,8 @@ body {
   grid-template-rows: repeat(2, auto);
   margin-left: 5%;
 }
+
+#message-container{
+  margin-bottom: 4em;
+  margin-top: 2em;
+}
