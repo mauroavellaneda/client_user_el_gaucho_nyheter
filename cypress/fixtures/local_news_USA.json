@@ -1,0 +1,16 @@
+{
+  "articles": [
+    {
+      "id": 9,
+      "title": "Flush With Cash, Biden Eclipses Trump in War for the Airwaves",
+      "lead": "President Trump is being vastly outspent by Joseph R. Biden Jr. in television advertising in the general election battleground states and elsewhere, with the former vice president focusing overwhelmingly on the coronavirus as millions of Americans across the country begin casting early votes.",
+      "category": "local"
+    },
+    {
+      "id": 10,
+      "title": "‘Out of Control’: When Schools Opened in a Virus Hot Spot",
+      "lead": "In a suburban Salt Lake City district, cases spiked as students returned to their classrooms. The fallout offers a cautionary tale.",
+      "category": "local"
+    }
+  ]
+}
