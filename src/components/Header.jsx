@@ -10,7 +10,9 @@ const Header = () => {
   return (
     <Menu inverted>
       <Menu.Item>
-        <h1 data-cy="header" id="">El Gaucho Nyheter</h1>
+        <h1 data-cy="header" id="">
+          El Gaucho Nyheter
+        </h1>
         <Menu.Item as={Link} to="/" data-cy="home">
           Home
         </Menu.Item>
