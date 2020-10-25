@@ -23,7 +23,7 @@ window.store = store;
 
 ReactDOM.render(
   <React.StrictMode>
-    <StripeProvider apiKey="pk_test_21nBNjeqdyB1Mzm2VjDPQprF00kyEKYZSK">
+    <StripeProvider apiKey="pk_test_51HdB6WLqoRP4iCAc86KxXieG7mYFdiNUY5VletydKDhZKC6BWEzoC13C29OGVHKMWo6dx6qTco9Kwqikcm5IOlZJ00Q1ajKLzs">
       <Provider store={store}>
         <Router>
           <App />
