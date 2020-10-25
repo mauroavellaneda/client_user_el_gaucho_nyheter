@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Alike+Angular&display=swap");
+
 body {
   box-sizing: border-box;
 }
@@ -9,7 +11,24 @@ body {
   margin-left: 5%;
 }
 
-#message-container{
+#message-container {
   margin-bottom: 4em;
   margin-top: 2em;
+}
+
+#header {
+  font-family: "Alike Angular", serif;
+  font-size: 40px;
+}
+
+#sub-menu {
+  background-color: #1a263e;
+}
+
+#category {
+  color: white;
+}
+#login {
+  font-family: "Alike Angular", serif;
+  font-size: 20px;
 }
