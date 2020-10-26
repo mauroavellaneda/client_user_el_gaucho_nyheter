@@ -54,12 +54,13 @@ const SingleArticle = () => {
 
             <Grid.Column width={5}></Grid.Column>
           </Grid.Row>
-          {article.premium && currentUser.role !== "subscriber" && (
+          { article.premium && currentUser.role !== "subscriber" && (
             <Segment color="black" textAlign="center">
               <h4 data-cy="premium-message">
                 This is a premium article, become a subscriber to read full
                 content{" "}
               </h4>
+              
               <Button
                 as={Link}
                 to={authenticated ? "/become-subscriber" : "/login"}

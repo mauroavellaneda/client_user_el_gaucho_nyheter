@@ -32,3 +32,7 @@ body {
   font-family: "Alike Angular", serif;
   font-size: 20px;
 }
+#cards {
+  margin-left: 60px;
+  margin-bottom: 20px;
+}
