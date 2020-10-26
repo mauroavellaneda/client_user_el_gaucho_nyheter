@@ -9,6 +9,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import configureStore from "./state/store/configureStore";
 import { StripeProvider } from "react-stripe-elements";
+import "./i18n";
 
 let apiUrl;
 if (process.env.NODE_ENV === "production") {
