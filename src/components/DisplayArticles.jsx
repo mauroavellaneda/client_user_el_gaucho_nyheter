@@ -1,7 +1,7 @@
-import { Card, Image, Message, Container, Grid } from "semantic-ui-react";
+import { Message, Container, Grid } from "semantic-ui-react";
 import React, { useEffect, useState } from "react";
 import Articles from "../modules/articles";
-import { Link, useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import ArticlesCard from "./ArticlesCard";
 
 const DisplayArticles = () => {
