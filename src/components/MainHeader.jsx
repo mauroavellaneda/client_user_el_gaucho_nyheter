@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Header, Segment } from "semantic-ui-react";
+import { Menu, Header, Segment, Dropdown } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -72,6 +72,24 @@ const MainHeader = () => {
             >
               Local news
             </Menu.Item>
+            <Dropdown id="change-language">
+              <Dropdown.Menu>
+                <Dropdown.Item
+                  onClick={() => {
+                    i18n.changeLanguage("sv");
+                  }}
+                >
+                  {t('Svenska')}
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={() => {
+                    i18n.changeLanguage("en");
+                  }}
+                >
+                  {t('English')}
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </Menu>
         </Header.Subheader>
       </Segment>
