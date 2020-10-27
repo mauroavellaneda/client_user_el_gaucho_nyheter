@@ -11,9 +11,17 @@ describe("Vistors can choose UI language", () => {
   it("by choosing language to spanish", () => {
     cy.get("[data-cy='change-language']").click();
     cy.get("div[role='option']").contains("Spanish").click();
-    cy.get('[href="/articles"]').should("contain", "Deportes");
-    cy.get('[href="/articles/politica"]').should("contain", "Politik");
-    cy.get('[href="/articles/Noticias Locales"]').should("contain", "Lokalla Nyheter");
+    cy.get("[data-cy='sports']").should("contain", "Deportes");
+    cy.get("[data-cy='politics']").should("contain", "Politica");
+    cy.get("[data-cy='local-news']").should("contain", "Noticias Locales");
     cy.get("[data-cy='login']").should("contain", "Inicia sesion");
+  });
+  it("by choosing language to swedish", () => {
+    cy.get("[data-cy='change-language']").click();
+    cy.get("div[role='option']").contains("Svenska").click();
+    cy.get("[data-cy='sports']").should("contain", "Sporter");
+    cy.get("[data-cy='politics']").should("not.contain", "Politica");
+    cy.get("[data-cy='local-news']").should("not.contain", "Noticias Locales");
+    cy.get("[data-cy='login']").should("contain", "Logga in");
   });
 });

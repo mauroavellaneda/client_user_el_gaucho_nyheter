@@ -9,7 +9,7 @@ describe("Visitor can see articles", () => {
     cy.visit("/");
   });
   it("visitor can see page header", () => {
-    cy.get("[data-cy='header']").should("contain", "El Gaucho Nyheter");
+    cy.get("[data-cy='header']").should("contain", "El Gaucho News");
   });
   it("shows first article ", () => {
     cy.get("[data-cy='article-1']").within(() => {

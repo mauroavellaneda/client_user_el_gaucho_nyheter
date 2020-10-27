@@ -30,7 +30,6 @@ const DisplayArticles = () => {
       setMessage(location.state.message);
     }
   }, [location]);
-
   return (
     <>
       <Container id="message-container">
