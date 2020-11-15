@@ -6,9 +6,9 @@ import ArticlesCard from "./ArticlesCard";
 
 const DisplayArticles = () => {
   const [articles, setArticles] = useState([]);
-  const [userLocation, setUserLocation] = useState();
-  const { category } = useParams();
+  const { category, local } = useParams();
   const [message, setMessage] = useState();
+  const [errorMessage, setErrorMessage] = useState();
 
   let location = useLocation();
 
@@ -18,7 +18,7 @@ const DisplayArticles = () => {
         const response = await Articles.localIndex();
         setUserLocation(response.location);
         setArticles(response.articles);
-      } else {
+      } else {debugger
         setArticles(await Articles.index(category));
       }
     };

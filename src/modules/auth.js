@@ -71,5 +71,23 @@ const getAuthHeaders = () => {
   };
   return headers;
 };
+const persistLogin = async (dispatch) => {
+  if (localStorage.getItem("J-tockAuth-Storage")) {
+    let credentials = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
+    const response = await auth.validateToken(credentials);
 
-export { login, signUp, getAuthHeaders };
+    if (response.success) {
+      dispatch({
+        type: "AUTHENTICATE",
+        payload: {
+          authenticated: response.success,
+          currentUser: response.data,
+        },
+      });
+    } else {
+      console.log(response);
+    }
+  }
+};
+
+export { login, signUp, getAuthHeaders, persistLogin };
