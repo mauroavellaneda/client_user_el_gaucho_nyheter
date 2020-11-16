@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Menu, Header, Segment } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const MainHeader = () => {
+  const [activeItem, setActiveItem] = useState("news");
   const authenticated = useSelector((state) => state.authenticated);
   const currentUser = useSelector((state) => state.currentUser);
+  const country = useSelector((state) => state.country);
+  const handleItemClick = ({ name }) => {
+    setActiveItem(name);
+  };
 
   return (
     <>
@@ -66,11 +71,13 @@ const MainHeader = () => {
 
             <Menu.Item
               as={Link}
-              to="/category/local"
               data-cy="local-news"
               id="category"
+              active={activeItem === "location"}
+              onClick={handleItemClick}
+              to={{ pathname: `/local/${country}` }}
             >
-              Local news
+              International
             </Menu.Item>
           </Menu>
         </Header.Subheader>

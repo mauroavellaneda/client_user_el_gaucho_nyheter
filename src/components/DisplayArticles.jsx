@@ -1,4 +1,4 @@
-import { Message, Container, Grid } from "semantic-ui-react";
+import { Message, Container, Grid, Segment, Header } from "semantic-ui-react";
 import React, { useEffect, useState } from "react";
 import Articles from "../modules/articles";
 import { useParams, useLocation } from "react-router-dom";
@@ -34,28 +34,62 @@ const DisplayArticles = () => {
 
   return (
     <>
-    
-      <Container id="message-container">
-        {message && (
-          <Message data-cy="message" color="green">
-            {message}
-          </Message>
-        )}
-      </Container>
-
-      <Container className="articles-container">
+      {local && (
+        <Container>
+          <Segment id="headersegment" textAlign="center">
+            <Header>
+              {local === "Sweden"
+                ? "Welcome to our news about Sweden!"
+                : "Enjoy our International section!"}
+            </Header>
+          </Segment>
+        </Container>
+      )}
+      {category ? (
+        <Container>
+          <Segment id="headersegment" textAlign="center">
+            <Header>
+              Enjoy our {category.charAt(0).toUpperCase() + category.slice(1)}{" "}
+              section!
+            </Header>
+          </Segment>
+        </Container>
+      ) : (
+        !local && (
+          <Container>
+            <Segment id="headersegment" textAlign="center">
+              <Header>Enjoy our content!</Header>
+            </Segment>
+          </Container>
+        )
+      )}
+      {message && (
+        <Message positive data-cy="payment-success-message">
+          <Message.Header>{message}</Message.Header>
+        </Message>
+      )}
+      {errorMessage && (
+        <Message negative data-cy="error-message">
+          <Message.Header>{errorMessage}</Message.Header>
+        </Message>
+      )}
+      <div id="container">
         <Grid>
-          <Grid.Row columns={4}>
+          <Grid.Row>
             {articles.map((article) => {
               return (
-                <>
+                <div
+                  class="card-style"
+                  data-cy={"article-" + article.id}
+                  key={article.id}
+                >
                   <ArticlesCard article={article} />
-                </>
+                </div>
               );
             })}
           </Grid.Row>
         </Grid>
-      </Container>
+      </div>
     </>
   );
 };
