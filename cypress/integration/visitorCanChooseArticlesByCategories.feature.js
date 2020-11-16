@@ -20,7 +20,7 @@ describe("Visitor can choose articles by categories", () => {
   });
   context("Visitor can see categories", () => {
     it("visitor can see different categories in the header", () => {
-  
+      cy.get("[data-cy='home']").should("contain", "Home");
       cy.get("[data-cy='sports']").should("contain", "Sports");
       cy.get("[data-cy='politics']").should("contain", "Politics");
     });
