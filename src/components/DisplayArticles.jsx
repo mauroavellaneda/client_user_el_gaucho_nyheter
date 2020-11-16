@@ -14,16 +14,17 @@ const DisplayArticles = () => {
 
   useEffect(() => {
     const getArticlesIndex = async () => {
-      if (category === "local") {
-        const response = await Articles.localIndex();
-        setUserLocation(response.location);
-        setArticles(response.articles);
-      } else {debugger
-        setArticles(await Articles.index(category));
+      const response = await Articles.index(category, local);
+      if (response?.constructor === Array) {
+        setArticles(response);
+        setErrorMessage("");
+      } else {
+        setArticles([]);
+        setErrorMessage(response);
       }
     };
     getArticlesIndex();
-  }, [category]);
+  }, [category, local]);
 
   useEffect(() => {
     if (location.state) {
@@ -33,14 +34,12 @@ const DisplayArticles = () => {
 
   return (
     <>
+    
       <Container id="message-container">
         {message && (
           <Message data-cy="message" color="green">
             {message}
           </Message>
-        )}
-        {userLocation && (
-          <h3 data-cy="current-location">Local news from: {userLocation}</h3>
         )}
       </Container>
 

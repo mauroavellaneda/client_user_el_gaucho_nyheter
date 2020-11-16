@@ -3,7 +3,6 @@ import { getAuthHeaders } from "./auth";
 
 const Articles = {
   async index(category, location) {
-    let response;
     try {
       let result;
       if (category) {
@@ -16,8 +15,6 @@ const Articles = {
       return result.data.articles;
     } catch (error) {
       return error.response.data.error;
-    } finally {
-      return response;
     }
   },
 
