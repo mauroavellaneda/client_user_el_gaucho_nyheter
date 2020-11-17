@@ -1,7 +1,8 @@
-import { Card, Image, Message, Container, Grid } from "semantic-ui-react";
+import { Message, Container, Grid } from "semantic-ui-react";
 import React, { useEffect, useState } from "react";
 import Articles from "../modules/articles";
-import { Link, useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
+import ArticlesCard from "./ArticlesCard";
 
 const DisplayArticles = () => {
   const [articles, setArticles] = useState([]);
@@ -24,30 +25,21 @@ const DisplayArticles = () => {
 
   return (
     <>
-      {message && (
-        <Message data-cy="message" color="green">
-          {message}
-        </Message>
-      )}
+      <Container id="message-container">
+        {message && (
+          <Message data-cy="message" color="green">
+            {message}
+          </Message>
+        )}
+      </Container>
       <Container className="articles-container">
         <Grid>
           <Grid.Row columns={4}>
             {articles.map((article) => {
               return (
-                <Card
-                  as={Link}
-                  to={`/articles/${article.id}`}
-                  data-cy={"article-" + article.id}
-                >
-                  {" "}
-                  {article.image && (
-                    <Image data-cy="image" src={article.image} />
-                  )}
-                  <Card.Content>
-                    <Card.Header>{article.title}</Card.Header>
-                    <Card.Description>{article.lead}</Card.Description>
-                  </Card.Content>
-                </Card>
+                <>
+                  <ArticlesCard article={article} />
+                </>
               );
             })}
           </Grid.Row>
